@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import { calcAge } from '../utils';
+import React, {useState} from 'react';
+import {calcAge} from 'utils';
 
 export default function AgeCalculator() {
     // Nějaké reaktivní proměnné? Možná věk? možná rok narození?
-    const [birthYear, setBirthYear] = useState(0);
-    const [age, setAge] = useState(0);
+    const [birthYear, setBirthYear] = useState<string>('');
+    const [age, setAge] = useState<number | null>(null);
 
     const handleChange = (e) => {
         const value = e.target.value;
@@ -20,7 +20,7 @@ export default function AgeCalculator() {
         <div>
             <label>
                 Zadej rok narození:
-                <input type="number" value={birthYear} onChange={handleChange} />
+                <input type="number" value={birthYear} onChange={handleChange}/>
             </label>
             {age !== null && <p>Tvůj věk je: {age}</p>}
         </div>
